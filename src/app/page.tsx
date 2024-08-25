@@ -1,9 +1,10 @@
 // "use client";
 
+import Product from "@/components/Product";
+
 export default async function Home() {
   const res = await fetch("https://fakestoreapi.com/products");
   const products: Product[] = await res.json();
-  console.log(products);
 
   return (
     <main>
@@ -11,9 +12,7 @@ export default async function Home() {
         <h1 className="text-5xl font-bold text-center">OFERTAS DO DIA</h1>
 
         {products.map((product) => (
-          // <div key={product.id}>
-          //   <h1>{product.title}</h1>
-          // </div>
+          <Product key={product.id} product={product} />
         ))}
         <div className=""></div>
         {/*  */}

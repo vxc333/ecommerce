@@ -8,6 +8,7 @@ type Props = {
 };
 export default async function ProductPage({ params: { id } }: Props) {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+
   try {
     const product: Product = await res.json();
     return (
